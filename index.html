@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrudhi Ramesh Shanthi - Robotics Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .bg-primary {
+            background-color: #EEEEEE;
+            /* Lightest color for primary background */
+        }
+
+        .text-primary {
+            color: #2A4759;
+        }
+
+        .bg-secondary {
+            background-color: #F79B72;
+            /* Lighter color for secondary background */
+        }
+
+        .text-secondary {
+            color: #2A4759;
+        }
+
+        .bg-accent {
+            background-color: #D5451B;
+            /* Medium color for accent background */
+            /* Changed to original accent color */
+        }
+
+        .text-accent {
+            color: #EEEEEE;
+        }
+
+        .bg-highlight {
+            color: #2A4759;
+            /* Darkest color for highlight background */
+        }
+
+        .text-highlight {
+            color: #EEEEEE;
+        }
+
+        .project-modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-modal-content {
+            background-color: #F79B72;
+            padding: 20px;
+            border: 1px solid #D5451B;
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 0.5rem;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            overflow: hidden;
+        }
+
+        .project-modal-left {
+            width: 50%;
+            padding-right: 20px;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        .project-modal-right {
+            width: 50%;
+            padding-left: 20px;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        .project-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #D5451B;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .project-modal-close:hover,
+        .project-modal-close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .project-modal-content {
+                flex-direction: column;
+                width: 95%;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .project-modal-left,
+            .project-modal-right {
+                width: 100%;
+                padding: 0;
+                margin-bottom: 20px;
+                max-height: none;
+                overflow-y: visible;
+            }
+
+            .project-modal-close {
+                top: 0;
+                right: 0;
+            }
+        }
+
+        /* Hover effects for projects and experience */
+        .project-item {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .project-item:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-primary min-h-screen flex flex-col">
+
+    <section id="about" class="container mx-auto py-16 px-4 md:px-8 flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/3">
+            <img src="srameshs_fall.jpg" alt="Shrudhi Ramesh Shanthi"
+                class="rounded-full shadow-lg w-64 h-64 object-cover border-4 border-accent">
+        </div>
+        <div class="md:w-2/3 text-primary">
+            <h1 class="text-3xl md:text-4xl font-semibold mb-4">Shrudhi Ramesh Shanthi</h1>
+            <p class="text-lg">
+                With a Master's in Robotic Systems Development from Carnegie Mellon University and a Bachelor's in
+                Electronics and Computer Engineering, I bring deep technical expertise to complex robotics challenges. I'm
+                passionate about motion planning, real-time robot control, and deploying autonomous systems in real
+                environments. My work focuses on creating robots that function reliably in unpredictable conditions. Through
+                rigorous academic training and hands-on projects, I've developed a specialized skill set that bridges
+                theoretical robotics concepts with practical implementation challenges.
+            </p>
+        </div>
+    </section>
+
+    <section id="projects" class="bg-secondary py-16 px-4 md:px-8">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-semibold text-accent mb-8 text-center">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col cursor-pointer project-item" data-project="nimo">
+                    <img src="placeholder.png" alt="NiMo Project" class="rounded-md mb-4 h-40 object-cover w-full">
+                    <h3 class="text-xl font-semibold mb-2 text-secondary">NiMo - Autonomous Nitrate Monitoring Robot</h3>
+                    <p class="text-gray-700">Autonomous field robot for nitrate monitoring.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col cursor-pointer project-item"
+                    data-project="throwcatchsort">
+                    <img src="placeholder.png" alt="ThrowCatchSort Project" class="rounded-md mb-4 h-40 object-cover w-full">
+                    <h3 class="text-xl font-semibold mb-2 text-secondary">ThrowCatchSort</h3>
+                    <p class="text-gray-700">Robot system for catching and sorting objects.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-4 flex flex-col cursor-pointer project-item" data-project="vla">
+                    <img src="placeholder.png" alt="VLA Project" class="rounded-md mb-4 h-40 object-cover w-full">
+                    <h3 class="text-xl font-semibold mb-2 text-secondary">Efficient VLA for Generalized Manipulation Tasks</h3>
+                    <p class="text-gray-700">Learning versatile manipulation skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="container mx-auto py-16 px-4 md:px-8">
+        <h2 class="text-3xl md:text-4xl font-semibold text-primary mb-8 text-center">Experience</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-2 text-secondary">Onward Robotics</h3>
+                <p class="text-gray-600 mb-2">Robot Software Intern | Pittsburgh, PA</p>
+                <p class="text-gray-700 mb-4">Enhanced state estimation and sensor fusion pipeline for AMR, achieving ±5 cm
+                    pose accuracy. Ideated on-robot Path Planner POC using DWA.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-2 text-secondary">General Electric Power Conversion</h3>
+                <p class="text-gray-600 mb-2">Embedded Systems Intern | Chennai, India</p>
+                <p class="text-gray-700 mb-4">Engineered and deployed automated testing software for a proprietary HPCi
+                    controller, achieving 94% functional accuracy.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-2 text-secondary">VIT</h3>
+                <p class="text-gray-600 mb-2">Robot Software Intern | Chennai, India</p>
+                <p class="text-gray-700 mb-4">Integrated sensors and enhanced localization for dynamic waypoint planning
+                    using the A-Star algorithm.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-2 text-secondary">CDCE Robotics</h3>
+                <p class="text-gray-600 mb-2">Electrical & Electronics Intern | Chennai, India</p>
+                <p class="text-gray-700 mb-4">Performed system integration and unit-testing of load testing line, improving
+                    line throughput by 30%.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-secondary py-16 px-4 md:px-8">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-semibold text-accent mb-8">Contact Me</h2>
+            <p class="text-lg text-highlight mb-4">Email: shrudhi.r.shanthi@example.com</p>
+            <p class="text-lg text-highlight mb-4">LinkedIn: <a href="https://linkedin.com/in/shrudhi-ramesh-shanthi"
+                    target="_blank" rel="noopener noreferrer"
+                    class="text-blue-300 hover:underline">linkedin.com/in/shrudhi-ramesh-shanthi</a>
+            </p>
+            <p class="text-lg text-highlight">GitHub: <a href="https://github.com/shrudhirs" target="_blank"
+                    rel="noopener noreferrer" class="text-blue-300 hover:underline">github.com/shrudhirs</a></p>
+        </div>
+    </section>
+
+    <footer class="bg-primary text-secondary py-4 px-4 md:px-8 mt-auto">
+        <div class="container mx-auto text-center text-sm">
+            <p>© 2025 Shrudhi Ramesh Shanthi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="project-modal-nimo" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close">&times;</span>
+            <div class="project-modal-left">
+                <h2 class="text-2xl font-semibold mb-4 text-primary">NiMo - Autonomous Nitrate Monitoring Robot</h2>
+
+                <p class="text-gray-700 mb-4"><strong>Mission:</strong> Autonomous nitrate monitoring in agricultural
+                    environments.</p>
+                <p class="text-gray-700 mb-4"><strong>Role:</strong> Led motion planning for the field robotics system.</p>
+                <p class="text-gray-700 mb-4"><strong>Results:</strong>
+                    Designed a MoveIt-based motion planning stack with SMACH.
+                    Conducted 24 field tests comparing SVD and FVD grasp ranges.
+                </p>
+                <p class="text-gray-700 mb-4"><strong>Technical Implementation Details:</strong>
+                    Designed a complete MoveIt-based motion planning stack integrated with SMACH Finite State Machine for
+                    real-world deployment in cornfields.
+                </p>
+                <p class="text-gray-700 mb-4"><strong>Validated Results:</strong>
+                    Conducted 24 field tests comparing Singular Value Decomposition (SVD) and Feature Value Decomposition
+                    (FVD) grasp ranges in varying field conditions.
+                </p>
+            </div>
+            <div class="project-modal-right">
+                <div class="media-placeholder mb-4">
+                    {/* Placeholder for image or video  */}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="project-modal-throwcatchsort" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close">&times;</span>
+            <div class="project-modal-left">
+                <h2 class="text-2xl font-semibold mb-4 text-primary">ThrowCatchSort</h2>
+
+                <p class="text-gray-700 mb-4"><strong>Mission:</strong> Real-time catching and sorting of balls.</p>
+                <p class="text-gray-700 mb-4"><strong>Role:</strong> Designed and implemented the system.</p>
+                <p class="text-gray-700 mb-4"><strong>Results:</strong>
+                    Implemented HSV blob tracking with RANSAC.
+                    Created a reliable system for predicting object trajectories.
+                </p>
+                <p class="text-gray-700 mb-4"><strong>Technical Implementation Details:</strong>
+                    Implemented HSV blob tracking with RANSAC for trajectory prediction and minimal-effort inverse kinematics
+                    planning.
+                </p>
+                <p class="text-gray-700 mb-4"><strong>Validated Results:</strong>
+                    Created a reliable system capable of accurately predicting object trajectories and executing precise
+                    catching motions.
+                </p>
+            </div>
+            <div class="project-modal-right">
+                <div class="media-placeholder mb-4">
+                    {/* Placeholder for image or video  */}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="project-modal-vla" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close">&times;</span>
+            <div class="project-modal-left">
+                <h2 class="text-2xl font-semibold mb-4 text-primary">Efficient VLA for Generalized Manipulation Tasks</h2>
+
+                <p class="text-gray-700 mb-4"><strong>Mission:</strong> Learning versatile manipulation skills.</p>
+                <p class="text-gray-700 mb-4"><strong>Role:</strong> Developer.</p>
+                <p class="text-gray-700 mb-4"><strong>Results:</strong>
+                    Improved efficiency and generalization of robotic manipulation.
+                </p>
+                <p class="text-gray-700 mb-4"><strong>Technical Implementation Details:</strong>
+                    Developed a novel approach for learning versatile manipulation skills.
+                </p>
+                <p class="text-gray-700 mb-4"><strong>Validated Results:</strong>
+                    Demonstrated strong results in various manipulation tasks.
+                </p>
+            </div>
+            <div class="project-modal-right">
+                <div class="media-placeholder mb-4">
+                    {/* Placeholder for image or video  */}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const projectItems = document.querySelectorAll('.project-item');
+        const projectModals = document.querySelectorAll('.project-modal');
+        const projectModalCloses = document.querySelectorAll('.project-modal-close');
+
+
+        projectItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const project = item.dataset.project;
+                const modal = document.getElementById(`project-modal-${project}`);
+                if (modal) {
+                    modal.style.display = "flex";
+                }
+            });
+        });
+
+        projectModalCloses.forEach(close => {
+            close.addEventListener('click', () => {
+                const modal = close.closest('.project-modal');
+                if (modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+
+        window.addEventListener('click', (event) => {
+            projectModals.forEach(modal => {
+                if (modal.style.display === "flex" && event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
